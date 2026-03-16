@@ -141,7 +141,7 @@ export interface SurveyStats {
   cultureTags: { label: string; count: number }[]
   satisfactionFactors: { label: string; count: number }[]
   monthly: { month: string; count: number }[]
-  comments: { name: string; job: string; comment: string; nps: number | null }[]
+  comments: { name: string; job: string; comment: string; nps: number | null; submitDate?: string }[]
 }
 
 export interface AllSurveyData {

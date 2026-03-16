@@ -148,8 +148,10 @@ function computeStats(
       job: r.jobTitle,
       comment: qIds.comment ? getStringAnswer(r.answers, qIds.comment) : '',
       nps: qIds.nps ? getNumericAnswer(r.answers, qIds.nps) : null,
+      submitDate: r.submitDate,
     }))
     .filter((c) => c.comment.length > 0)
+    .sort((a, b) => new Date(b.submitDate).getTime() - new Date(a.submitDate).getTime())
 
   return {
     totalCount: responses.length,
