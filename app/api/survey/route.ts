@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
-import { getAuthToken, fetchFormResponses, FORM_IDS } from '@/lib/greeting-survey-api'
 import type { SurveyStats, AllSurveyData } from '@/lib/types'
+import fs from 'fs'
+import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
@@ -229,28 +230,22 @@ function getMockData(): AllSurveyData {
 }
 
 export async function GET() {
-  if (isMockMode()) {
-    return NextResponse.json(getMockData())
-  }
+  const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
 
-  try {
-    const token = await getAuthToken()
-
-    const [responses1, responses2, responsesCoffee] = await Promise.all([
-      fetchFormResponses(token, FORM_IDS.interview1),
-      fetchFormResponses(token, FORM_IDS.interview2),
-      fetchFormResponses(token, FORM_IDS.coffeechat),
-    ])
-
-    const result: AllSurveyData = {
-      interview1: computeStats(responses1, Q_IDS.interview1),
-      interview2: computeStats(responses2, Q_IDS.interview2),
-      coffeechat: computeStats(responsesCoffee, Q_IDS.coffeechat),
+  if (fs.existsSync(dataFile)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
+      const result: AllSurveyData = {
+        interview1: computeStats(raw.interview1 || [], Q_IDS.interview1),
+        interview2: computeStats(raw.interview2 || [], Q_IDS.interview2),
+        coffeechat: computeStats(raw.coffeechat || [], Q_IDS.coffeechat),
+      }
+      return NextResponse.json(result)
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '알 수 없는 오류'
+      return NextResponse.json({ error: message }, { status: 500 })
     }
-
-    return NextResponse.json(result)
-  } catch (error) {
-    const message = error instanceof Error ? error.message : '알 수 없는 오류'
-    return NextResponse.json({ error: message }, { status: 500 })
   }
+
+  return NextResponse.json(getMockData())
 }
