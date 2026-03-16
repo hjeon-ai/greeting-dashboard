@@ -236,10 +236,11 @@ function normalizeResponses(items: { name: string; jobTitle: string; submitDate:
     name: item.name,
     jobTitle: item.jobTitle,
     submitDate: item.submitDate,
-    answers: item.answers.map((a) => ({
-      questionId: a.question?.id,
-      value: a.answers?.[0]?.value ?? null,
-    })),
+    answers: item.answers.map((a) => {
+      const contents = (a.answers || []).map((x: { content: unknown }) => x.content).filter(Boolean)
+      const value = contents.length === 1 ? contents[0] : contents.length > 1 ? contents : null
+      return { questionId: a.question?.id, value }
+    }),
   }))
 }
 
