@@ -229,7 +229,7 @@ function getMockData(): AllSurveyData {
   }
 }
 
-type RawApiAnswer = { question: { id: number }; answers: { value: unknown }[] }
+type RawApiAnswer = { question: { id: number }; answers: { content: unknown }[] }
 
 function normalizeResponses(items: { name: string; jobTitle: string; submitDate: string; answers: RawApiAnswer[] }[]): RawResponse[] {
   return items.map((item) => ({
@@ -237,7 +237,7 @@ function normalizeResponses(items: { name: string; jobTitle: string; submitDate:
     jobTitle: item.jobTitle,
     submitDate: item.submitDate,
     answers: item.answers.map((a) => {
-      const contents = (a.answers || []).map((x: { content: unknown }) => x.content).filter(Boolean)
+      const contents = (a.answers || []).map((x) => x.content).filter(Boolean)
       const value = contents.length === 1 ? contents[0] : contents.length > 1 ? contents : null
       return { questionId: a.question?.id, value }
     }),
