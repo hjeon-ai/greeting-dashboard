@@ -24,6 +24,9 @@ export async function fetchFormResponses(token: string, formId: number): Promise
     { headers: { Authorization: token } }
   )
   const listJson = await listRes.json()
+  console.log('[survey] listJson keys:', JSON.stringify(Object.keys(listJson)))
+  console.log('[survey] listJson.data keys:', JSON.stringify(listJson.data ? Object.keys(listJson.data) : null))
+  console.log('[survey] listJson sample:', JSON.stringify(listJson).slice(0, 500))
   const items: {
     respondent: { name: string; category: string }
     response: { id: number | string; submitDate: string }
