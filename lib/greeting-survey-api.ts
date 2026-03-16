@@ -13,20 +13,17 @@ export async function getAuthToken(): Promise<string> {
   })
   const json = await res.json()
   if (!json.success) throw new Error('그리팅 로그인 실패: ' + json.message)
-  return `Bearer ${json.data.accessToken}`
+  return json.data.accessToken
 }
 
 export async function fetchFormResponses(token: string, formId: number): Promise<
-  { name: string; jobTitle: string; submitDate: string; answers: { questionId: number; value: unknown }[] }[]
+  { name: string; jobTitle: string; submitDate: string; answers: { question: { id: number }; answers: { content: unknown }[] }[] }[]
 > {
   const listRes = await fetch(
     `https://api.greetinghr.com/ats/api/forms/v1.0/workspaces/${WORKSPACE}/forms/${formId}/responses?page=0&pageSize=200&sorts=SUBMIT_DATE_DESC&status=SUBMITTED`,
     { headers: { Authorization: token } }
   )
   const listJson = await listRes.json()
-  console.log('[survey] listJson keys:', JSON.stringify(Object.keys(listJson)))
-  console.log('[survey] listJson.data keys:', JSON.stringify(listJson.data ? Object.keys(listJson.data) : null))
-  console.log('[survey] listJson sample:', JSON.stringify(listJson).slice(0, 500))
   const items: {
     respondent: { name: string; category: string }
     response: { id: number | string; submitDate: string }

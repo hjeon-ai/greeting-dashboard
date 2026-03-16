@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { getAuthToken, fetchFormResponses, FORM_IDS } from '@/lib/greeting-survey-api'
 import type { SurveyStats, AllSurveyData } from '@/lib/types'
 import fs from 'fs'
 import path from 'path'
@@ -247,10 +248,24 @@ function normalizeResponses(items: { name: string; jobTitle: string; submitDate:
 }
 
 export async function GET() {
-  const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
-
-  if (fs.existsSync(dataFile)) {
-    try {
+  // 라이브 API 시도
+  try {
+    const token = await getAuthToken()
+    const [responses1, responses2, responsesCoffee] = await Promise.all([
+      fetchFormResponses(token, FORM_IDS.interview1),
+      fetchFormResponses(token, FORM_IDS.interview2),
+      fetchFormResponses(token, FORM_IDS.coffeechat),
+    ])
+    const result: AllSurveyData = {
+      interview1: computeStats(normalizeResponses(responses1), Q_IDS.interview1),
+      interview2: computeStats(normalizeResponses(responses2), Q_IDS.interview2),
+      coffeechat: computeStats(normalizeResponses(responsesCoffee), Q_IDS.coffeechat),
+    }
+    return NextResponse.json(result)
+  } catch {
+    // 라이브 API 실패 시 저장된 파일로 폴백
+    const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
+    if (fs.existsSync(dataFile)) {
       const raw = JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
       const result: AllSurveyData = {
         interview1: computeStats(normalizeResponses(raw.interview1 || []), Q_IDS.interview1),
@@ -258,11 +273,7 @@ export async function GET() {
         coffeechat: computeStats(normalizeResponses(raw.coffeechat || []), Q_IDS.coffeechat),
       }
       return NextResponse.json(result)
-    } catch (error) {
-      const message = error instanceof Error ? error.message : '알 수 없는 오류'
-      return NextResponse.json({ error: message }, { status: 500 })
     }
+    return NextResponse.json(getMockData())
   }
-
-  return NextResponse.json(getMockData())
 }
