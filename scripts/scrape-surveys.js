@@ -17,14 +17,16 @@ if (!EMAIL || !PASSWORD) {
   process.exit(1);
 }
 
-async function fetchAllResponses(page, token, formId) {
-  const listRes = await page.evaluate(async ({ token, formId, workspace }) => {
-    const r = await fetch(
-      `https://api.greetinghr.com/ats/api/forms/v1.0/workspaces/${workspace}/forms/${formId}/responses?page=0&pageSize=200&sorts=SUBMIT_DATE_DESC&status=SUBMITTED`,
-      { headers: { Authorization: token } }
-    );
-    return r.json();
-  }, { token, formId, workspace: WORKSPACE });
+async function apiFetch(url, token) {
+  const r = await fetch(url, { headers: { Authorization: token, timezone: '-540' } });
+  return r.json();
+}
+
+async function fetchAllResponses(token, formId) {
+  const listRes = await apiFetch(
+    `https://api.greetinghr.com/ats/api/forms/v1.0/workspaces/${WORKSPACE}/forms/${formId}/responses?page=0&pageSize=200&sorts=SUBMIT_DATE_DESC&status=SUBMITTED`,
+    token
+  );
 
   const items = listRes.data?.datas || [];
   const all = [];
@@ -32,20 +34,17 @@ async function fetchAllResponses(page, token, formId) {
   for (let i = 0; i < items.length; i++) {
     const { response, respondent } = items[i];
     process.stdout.write(`\r  ${i + 1}/${items.length}`);
-    const detail = await page.evaluate(async ({ token, formId, workspace, responseId }) => {
-      const r = await fetch(
-        `https://api.greetinghr.com/ats/api/forms/v1.0/workspaces/${workspace}/forms/${formId}/responses/${responseId}`,
-        { headers: { Authorization: token } }
-      );
-      return r.json();
-    }, { token, formId, workspace: WORKSPACE, responseId: response.id });
+    const detail = await apiFetch(
+      `https://api.greetinghr.com/ats/api/forms/v1.0/workspaces/${WORKSPACE}/forms/${formId}/responses/${response.id}`,
+      token
+    );
     all.push({
       name: respondent.name,
       jobTitle: respondent.category,
       submitDate: response.submitDate,
       answers: detail.data?.answers || [],
     });
-    await page.waitForTimeout(80);
+    await new Promise(r => setTimeout(r, 80));
   }
   console.log();
   return all;
@@ -67,7 +66,6 @@ async function fetchAllResponses(page, token, formId) {
     page.keyboard.press('Enter'),
   ]);
   const loginBody = await loginRes.json();
-  console.log('DEBUG loginBody.data:', JSON.stringify(loginBody?.data));
   token = loginBody?.data?.accessToken ? `Bearer ${loginBody.data.accessToken}` : null;
   console.log('토큰 획득:', token ? '성공' : '실패');
 
@@ -80,8 +78,15 @@ async function fetchAllResponses(page, token, formId) {
   const result = {};
   for (const form of FORMS) {
     console.log(`\n[${form.key}] 수집 중...`);
-    result[form.key] = await fetchAllResponses(page, token, form.id);
+    result[form.key] = await fetchAllResponses(token, form.id);
     console.log(`  ${result[form.key].length}건 완료`);
+  }
+
+  const totalCount = Object.values(result).filter(Array.isArray).reduce((s, a) => s + a.length, 0);
+  if (totalCount === 0) {
+    console.error('수집된 데이터가 없어 저장을 건너뜁니다');
+    await browser.close();
+    process.exit(1);
   }
 
   result.updatedAt = new Date().toISOString();
