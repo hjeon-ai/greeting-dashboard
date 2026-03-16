@@ -229,6 +229,20 @@ function getMockData(): AllSurveyData {
   }
 }
 
+type RawApiAnswer = { question: { id: number }; answers: { value: unknown }[] }
+
+function normalizeResponses(items: { name: string; jobTitle: string; submitDate: string; answers: RawApiAnswer[] }[]): RawResponse[] {
+  return items.map((item) => ({
+    name: item.name,
+    jobTitle: item.jobTitle,
+    submitDate: item.submitDate,
+    answers: item.answers.map((a) => ({
+      questionId: a.question?.id,
+      value: a.answers?.[0]?.value ?? null,
+    })),
+  }))
+}
+
 export async function GET() {
   const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
 
@@ -236,9 +250,9 @@ export async function GET() {
     try {
       const raw = JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
       const result: AllSurveyData = {
-        interview1: computeStats(raw.interview1 || [], Q_IDS.interview1),
-        interview2: computeStats(raw.interview2 || [], Q_IDS.interview2),
-        coffeechat: computeStats(raw.coffeechat || [], Q_IDS.coffeechat),
+        interview1: computeStats(normalizeResponses(raw.interview1 || []), Q_IDS.interview1),
+        interview2: computeStats(normalizeResponses(raw.interview2 || []), Q_IDS.interview2),
+        coffeechat: computeStats(normalizeResponses(raw.coffeechat || []), Q_IDS.coffeechat),
       }
       return NextResponse.json(result)
     } catch (error) {
