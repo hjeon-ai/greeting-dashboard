@@ -166,6 +166,10 @@ function computeStats(
     .filter((c) => c.comment.length > 0)
     .sort((a, b) => new Date(b.submitDate).getTime() - new Date(a.submitDate).getTime())
 
+  const avgNps = validNps.length > 0
+    ? Math.round((validNps.reduce((a, b) => a + b, 0) / validNps.length) * 10) / 10
+    : null
+
   return {
     totalCount: responses.length,
     avgGuidance: avg(guidances),
@@ -173,6 +177,7 @@ function computeStats(
     avgDifficulty: avg(difficulties),
     avgConvenience: avg(conveniences),
     nps: npsScore,
+    avgNps,
     promoters,
     passives,
     detractors,
@@ -259,32 +264,37 @@ function normalizeResponses(items: { name: string; jobTitle: string; submitDate:
   }))
 }
 
+function buildResult(r1: RawResponse[], r2: RawResponse[], rc: RawResponse[]): AllSurveyData {
+  return {
+    interview1: computeStats(r1, Q_IDS.interview1),
+    interview2: computeStats(r2, Q_IDS.interview2),
+    coffeechat: computeStats(rc, Q_IDS.coffeechat),
+  }
+}
+
 export async function GET() {
+  const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
+
   // 라이브 API 시도
   try {
     const token = await getAuthToken()
-    const [responses1, responses2, responsesCoffee] = await Promise.all([
+    const [r1, r2, rc] = await Promise.all([
       fetchFormResponses(token, FORM_IDS.interview1),
       fetchFormResponses(token, FORM_IDS.interview2),
       fetchFormResponses(token, FORM_IDS.coffeechat),
     ])
-    const result: AllSurveyData = {
-      interview1: computeStats(normalizeResponses(responses1), Q_IDS.interview1),
-      interview2: computeStats(normalizeResponses(responses2), Q_IDS.interview2),
-      coffeechat: computeStats(normalizeResponses(responsesCoffee), Q_IDS.coffeechat),
-    }
-    return NextResponse.json(result)
+    // 라이브 API가 빈 데이터를 반환하면 파일로 폴백
+    if (r1.length === 0 && r2.length === 0 && rc.length === 0) throw new Error('empty')
+    return NextResponse.json(buildResult(normalizeResponses(r1), normalizeResponses(r2), normalizeResponses(rc)))
   } catch {
-    // 라이브 API 실패 시 저장된 파일로 폴백
-    const dataFile = path.join(process.cwd(), 'data', 'survey-raw.json')
+    // 저장된 파일로 폴백
     if (fs.existsSync(dataFile)) {
       const raw = JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
-      const result: AllSurveyData = {
-        interview1: computeStats(normalizeResponses(raw.interview1 || []), Q_IDS.interview1),
-        interview2: computeStats(normalizeResponses(raw.interview2 || []), Q_IDS.interview2),
-        coffeechat: computeStats(normalizeResponses(raw.coffeechat || []), Q_IDS.coffeechat),
-      }
-      return NextResponse.json(result)
+      return NextResponse.json(buildResult(
+        normalizeResponses(raw.interview1 || []),
+        normalizeResponses(raw.interview2 || []),
+        normalizeResponses(raw.coffeechat || []),
+      ))
     }
     return NextResponse.json(getMockData())
   }

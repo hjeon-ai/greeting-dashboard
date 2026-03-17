@@ -181,18 +181,15 @@ function CommentsList({ comments }: { comments: SurveyStats['comments'] }) {
 }
 
 function SurveyPanel({ stats, type }: { stats: SurveyStats; type: SubTabKey }) {
-  const npsLabel =
-    stats.nps >= 50 ? '우수' : stats.nps >= 0 ? '보통' : '개선 필요'
-
   return (
     <div className="space-y-6">
       {/* KPI Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         <KpiCard label="총 응답 수" value={`${stats.totalCount}명`} />
         <KpiCard
-          label="NPS"
-          value={`${stats.nps}`}
-          sub={npsLabel}
+          label="평균 추천 점수"
+          value={stats.avgNps !== null ? `${stats.avgNps}점` : '-'}
+          sub="0-10점 척도"
         />
         <KpiCard
           label="평균 면접 경험"

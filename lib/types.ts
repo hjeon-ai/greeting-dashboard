@@ -131,6 +131,7 @@ export interface SurveyStats {
   avgDifficulty: number | null
   avgConvenience: number | null
   nps: number
+  avgNps: number | null
   promoters: number
   passives: number
   detractors: number
