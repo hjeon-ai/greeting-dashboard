@@ -31,6 +31,19 @@ type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 // 차트 공통 색상 팔레트 (파이차트와 동일)
 const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#eab308', '#06b6d4']
 
+// 키컬러 그라데이션: #94EFFF(진함) → #EBF9FF(연함), n개 생성
+function keyColorGradient(n: number): string[] {
+  const s = { r: 0x94, g: 0xEF, b: 0xFF }
+  const e = { r: 0xEB, g: 0xF9, b: 0xFF }
+  return Array.from({ length: n }, (_, i) => {
+    const t = n <= 1 ? 0 : i / (n - 1)
+    const r = Math.round(s.r + t * (e.r - s.r))
+    const g = Math.round(s.g + t * (e.g - s.g))
+    const b = Math.round(s.b + t * (e.b - s.b))
+    return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`
+  })
+}
+
 const tooltipStyle = {
   borderRadius: '8px',
   border: '1px solid #e4e4e7',
@@ -134,9 +147,15 @@ function NpsPieChart({ stats }: { stats: SurveyStats }) {
   )
 }
 
-function HorizontalBarChart({ data, title }: { data: { label: string; count: number }[]; title: string }) {
+function HorizontalBarChart({ data, title, useKeyColor = false }: {
+  data: { label: string; count: number }[]
+  title: string
+  useKeyColor?: boolean
+}) {
   if (data.length === 0) return null
   const max = Math.max(...data.map((d) => d.count), 1)
+  const sliced = data.slice(0, 10)
+  const colors = useKeyColor ? keyColorGradient(sliced.length) : null
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
@@ -144,7 +163,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
         <h4 className="text-sm font-semibold text-zinc-800">{title}</h4>
       </div>
       <div className="px-5 pb-5 space-y-2.5">
-        {data.slice(0, 10).map((item, i) => (
+        {sliced.map((item, i) => (
           <div key={item.label} className="flex items-center gap-3">
             <span className="w-24 shrink-0 text-xs text-zinc-600 truncate" title={item.label}>{item.label}</span>
             <div className="flex-1 h-5 bg-zinc-100 rounded-full overflow-hidden">
@@ -152,7 +171,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${(item.count / max) * 100}%`,
-                  backgroundColor: CHART_COLORS[i % CHART_COLORS.length],
+                  backgroundColor: colors ? colors[i] : CHART_COLORS[i % CHART_COLORS.length],
                 }}
               />
             </div>
@@ -248,7 +267,7 @@ function SurveyPanel({ stats, type }: { stats: SurveyStats; type: SubTabKey }) {
 
       {/* 태그 차트 (1차, 커피챗만) */}
       {type === 'interview1' && stats.cultureTags.length > 0 && (
-        <HorizontalBarChart data={stats.cultureTags} title="분위기 태그" />
+        <HorizontalBarChart data={stats.cultureTags} title="분위기 태그" useKeyColor />
       )}
       {type === 'coffeechat' && stats.satisfactionFactors.length > 0 && (
         <HorizontalBarChart data={stats.satisfactionFactors} title="만족 요인" />
