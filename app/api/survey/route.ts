@@ -126,7 +126,14 @@ function computeStats(
   const experiences = responses.map((r) => (qIds.experience ? getNumericAnswer(r.answers, qIds.experience) : null))
   const difficulties = responses.map((r) => (qIds.difficulty ? getNumericAnswer(r.answers, qIds.difficulty) : null))
   const conveniences = responses.map((r) => (qIds.convenience ? getNumericAnswer(r.answers, qIds.convenience) : null))
-  const npsList = responses.map((r) => (qIds.nps ? getNumericAnswer(r.answers, qIds.nps) : null))
+  // 2025-09-25 이전 응답은 5점 만점 척도 → 10점으로 변환 (×2)
+  const NPS_SCALE_CUTOFF = '2025-09-25'
+  const npsList = responses.map((r) => {
+    if (!qIds.nps) return null
+    let n = getNumericAnswer(r.answers, qIds.nps)
+    if (n !== null && r.submitDate < NPS_SCALE_CUTOFF && n >= 1 && n <= 5) n = n * 2
+    return n
+  })
 
   const validNps = npsList.filter((n): n is number => n !== null)
   const promoters = validNps.filter((n) => n >= 9).length
@@ -148,7 +155,12 @@ function computeStats(
       name: r.name,
       job: r.jobTitle,
       comment: qIds.comment ? getStringAnswer(r.answers, qIds.comment) : '',
-      nps: qIds.nps ? getNumericAnswer(r.answers, qIds.nps) : null,
+      nps: (() => {
+        if (!qIds.nps) return null
+        let n = getNumericAnswer(r.answers, qIds.nps)
+        if (n !== null && r.submitDate < NPS_SCALE_CUTOFF && n >= 1 && n <= 5) n = n * 2
+        return n
+      })(),
       submitDate: r.submitDate,
     }))
     .filter((c) => c.comment.length > 0)
