@@ -23,7 +23,7 @@ interface Props {
   openingDetails: OpeningDetail[]
 }
 
-const PIE_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#eab308', '#06b6d4']
+const PIE_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#FFD900', '#06b6d4']
 
 const tooltipStyle = {
   borderRadius: '8px',

@@ -29,12 +29,12 @@ const SUB_TABS = [
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
 // 차트 공통 색상 팔레트 (파이차트와 동일)
-const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#eab308', '#06b6d4']
+const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#FFD900', '#06b6d4']
 
-// 키컬러 그라데이션: #94EFFF(진함) → #EBF9FF(연함), n개 생성
+// 분위기 태그 그라데이션: #FFF1A3(진함) → #FFFDE8(연함), n개 생성
 function keyColorGradient(n: number): string[] {
-  const s = { r: 0x94, g: 0xEF, b: 0xFF }
-  const e = { r: 0xEB, g: 0xF9, b: 0xFF }
+  const s = { r: 0xFF, g: 0xF1, b: 0xA3 }
+  const e = { r: 0xFF, g: 0xFD, b: 0xE8 }
   return Array.from({ length: n }, (_, i) => {
     const t = n <= 1 ? 0 : i / (n - 1)
     const r = Math.round(s.r + t * (e.r - s.r))
