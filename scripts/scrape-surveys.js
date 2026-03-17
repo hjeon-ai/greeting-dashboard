@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const EMAIL = process.env.GREETING_EMAIL;
 const PASSWORD = process.env.GREETING_PASSWORD;
+const PASSWORD_HASH = process.env.GREETING_PASSWORD_HASH;
 const WORKSPACE = 15598;
 const FORMS = [
   { id: 2936, key: 'interview1' },
@@ -12,8 +13,8 @@ const FORMS = [
 ];
 const OUTPUT = path.join(__dirname, '..', 'data', 'survey-raw.json');
 
-if (!EMAIL || !PASSWORD) {
-  console.error('환경변수 필요: GREETING_EMAIL, GREETING_PASSWORD');
+if (!EMAIL || (!PASSWORD && !PASSWORD_HASH)) {
+  console.error('환경변수 필요: GREETING_EMAIL, GREETING_PASSWORD 또는 GREETING_PASSWORD_HASH');
   process.exit(1);
 }
 
@@ -50,29 +51,46 @@ async function fetchAllResponses(token, formId) {
   return all;
 }
 
+async function loginWithHash(email, passwordHash) {
+  console.log('로그인 (직접 API)...');
+  const res = await fetch('https://api.greetinghr.com/authn/login/password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, platform: 'WEB', password: passwordHash }),
+  });
+  const json = await res.json();
+  return json?.data?.accessToken || null;
+}
+
 (async () => {
-  const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext();
-  const page = await context.newPage();
   let token = null;
 
-  console.log('로그인...');
-  await page.goto('https://app.greetinghr.com/login');
-  await page.fill('input[name="email"]', EMAIL);
-  await page.fill('input[name="password"]', PASSWORD);
+  // GREETING_PASSWORD_HASH가 있으면 직접 API 로그인 (Playwright 불필요)
+  if (PASSWORD_HASH) {
+    token = await loginWithHash(EMAIL, PASSWORD_HASH);
+    console.log('토큰 획득:', token ? '성공' : '실패');
+    if (!token) { console.error('토큰 획득 실패'); process.exit(1); }
+  } else {
+    const browser = await chromium.launch({ headless: true });
+    const context = await browser.newContext();
+    const page = await context.newPage();
 
-  const [loginRes] = await Promise.all([
-    page.waitForResponse(res => res.url().includes('/authn/login/password')),
-    page.keyboard.press('Enter'),
-  ]);
-  const loginBody = await loginRes.json();
-  token = loginBody?.data?.accessToken ? `Bearer ${loginBody.data.accessToken}` : null;
-  console.log('토큰 획득:', token ? '성공' : '실패');
+    console.log('로그인 (Playwright)...');
+    await page.goto('https://app.greetinghr.com/login');
+    await page.fill('input[name="email"]', EMAIL);
+    await page.fill('input[name="password"]', PASSWORD);
 
-  if (!token) {
-    console.error('토큰 획득 실패');
+    const [loginRes] = await Promise.all([
+      page.waitForResponse(res => res.url().includes('/authn/login/password')),
+      page.keyboard.press('Enter'),
+    ]);
+    const loginBody = await loginRes.json();
+    // NOTE: greetinghr API requires raw JWT without "Bearer " prefix
+    token = loginBody?.data?.accessToken || null;
+    console.log('토큰 획득:', token ? '성공' : '실패');
+
     await browser.close();
-    process.exit(1);
+    if (!token) { console.error('토큰 획득 실패'); process.exit(1); }
   }
 
   const result = {};
@@ -92,5 +110,4 @@ async function fetchAllResponses(token, formId) {
   result.updatedAt = new Date().toISOString();
   fs.writeFileSync(OUTPUT, JSON.stringify(result, null, 2));
   console.log('\n저장 완료:', OUTPUT);
-  await browser.close();
 })();
