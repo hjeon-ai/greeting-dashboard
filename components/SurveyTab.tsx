@@ -93,9 +93,9 @@ function NpsPieChart({ stats }: { stats: SurveyStats }) {
   ].filter((d) => d.value > 0)
 
   const COLORS: Record<string, string> = {
-    추천: '#40E2FF',
-    중립: '#94a3b8',
-    비추천: '#f87171',
+    추천: '#3b82f6',
+    중립: '#f59e0b',
+    비추천: '#ef4444',
   }
 
   if (pieData.length === 0) return null
