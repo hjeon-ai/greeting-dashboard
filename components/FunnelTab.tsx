@@ -239,22 +239,7 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
                           </div>
                         </td>
                         <td className="py-3">
-                          <div className="flex flex-col gap-1 items-start">
-                            <span className="text-xs text-zinc-700 break-keep">{a.openingTitle}</span>
-                            {(() => {
-                              const field = a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field
-                              if (!field) return null
-                              const color = getFieldColor(field)
-                              return (
-                                <span
-                                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium"
-                                  style={{ backgroundColor: hexToRgba(color, 0.12), color, border: `1px solid ${hexToRgba(color, 0.3)}` }}
-                                >
-                                  {field}
-                                </span>
-                              )
-                            })()}
-                          </div>
+                          <span className="text-xs text-zinc-700 break-keep">{a.openingTitle}</span>
                         </td>
                         <td className="py-3 text-zinc-500 whitespace-nowrap">
                           {new Date(a.passDate).toLocaleDateString('ko-KR')}

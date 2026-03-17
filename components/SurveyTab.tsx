@@ -10,6 +10,9 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
+  PieChart,
+  Pie,
+  Legend,
 } from 'recharts'
 import type { AllSurveyData, SurveyStats } from '@/lib/types'
 
@@ -82,29 +85,52 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
   )
 }
 
-function NpsDistributionChart({ distribution }: { distribution: number[] }) {
-  const chartData = distribution.map((count, i) => ({ label: `${i}점`, count }))
-  const maxCount = Math.max(...chartData.map((d) => d.count), 1)
+function NpsPieChart({ stats }: { stats: SurveyStats }) {
+  const pieData = [
+    { name: '추천', value: stats.promoters },
+    { name: '중립', value: stats.passives },
+    { name: '비추천', value: stats.detractors },
+  ].filter((d) => d.value > 0)
+
+  const COLORS: Record<string, string> = {
+    추천: '#40E2FF',
+    중립: '#94a3b8',
+    비추천: '#f87171',
+  }
+
+  if (pieData.length === 0) return null
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="p-5 pb-2">
         <h4 className="text-sm font-semibold text-zinc-800">추천 점수 분포</h4>
-        <p className="text-xs text-zinc-400 mt-0.5">0~10점 응답 분포</p>
+        <p className="text-xs text-zinc-400 mt-0.5">
+          5점 척도: 1-2점 비추천 · 3점 중립 · 4-5점 추천&nbsp;&nbsp;|&nbsp;&nbsp;10점 척도: 0-6점 비추천 · 7-8점 중립 · 9-10점 추천
+        </p>
       </div>
       <div className="p-5 pt-1">
         <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={chartData} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" vertical={false} />
-            <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#71717a' }} axisLine={{ stroke: '#e4e4e7' }} tickLine={false} />
-            <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
-            <Tooltip contentStyle={tooltipStyle} />
-            <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
-              {chartData.map((item, i) => (
-                <Cell key={i} fill={getBrandColor(item.count, maxCount)} />
+          <PieChart>
+            <Pie
+              data={pieData}
+              dataKey="value"
+              nameKey="name"
+              cx="50%"
+              cy="50%"
+              outerRadius={75}
+              label={({ name, percent }: { name?: string; percent?: number }) =>
+                `${name ?? ''} ${((percent ?? 0) * 100).toFixed(0)}%`
+              }
+              labelLine={false}
+              fontSize={12}
+            >
+              {pieData.map((entry, i) => (
+                <Cell key={i} fill={COLORS[entry.name]} />
               ))}
-            </Bar>
-          </BarChart>
+            </Pie>
+            <Tooltip contentStyle={tooltipStyle} formatter={(v) => [`${v}명`, '']} />
+            <Legend iconSize={10} wrapperStyle={{ fontSize: '12px' }} />
+          </PieChart>
         </ResponsiveContainer>
       </div>
     </div>
@@ -211,7 +237,7 @@ function SurveyPanel({ stats, type }: { stats: SurveyStats; type: SubTabKey }) {
 
       {/* 추천 점수 분포 + 면접 경험 차트 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <NpsDistributionChart distribution={stats.npsDistribution} />
+        <NpsPieChart stats={stats} />
         <ScoreBarChart data={stats.experienceDistribution} title="면접 경험 분포" />
       </div>
 
