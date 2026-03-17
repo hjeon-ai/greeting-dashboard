@@ -28,18 +28,8 @@ const SUB_TABS = [
 
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
-// 브랜드 그라데이션 팔레트 (01~13: 밝은 → 어두운)
-const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
-
-// 비율에 따라 브랜드 그라데이션 색 반환
-// 가장 진한 색 = base(#40E2FF, index 5), 낮을수록 연해짐
-function getBrandColor(count: number, max: number): string {
-  if (count === 0 || max === 0) return '#e4e4e7'
-  const ratio = count / max // 0~1
-  const minIdx = 2  // #A3EBFF (최소 가시 밝기)
-  const maxIdx = 5  // #40E2FF (base = 최대 진함)
-  return BRAND_GRADIENT[Math.round(minIdx + ratio * (maxIdx - minIdx))]
-}
+// 차트 공통 색상 팔레트 (파이차트와 동일)
+const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -60,7 +50,6 @@ function KpiCard({ label, value, sub }: { label: string; value: string; sub?: st
 
 function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
   const chartData = data.map((count, i) => ({ label: `${i + 1}점`, count }))
-  const maxCount = Math.max(...chartData.map((d) => d.count), 1)
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="p-5 pb-2">
@@ -74,8 +63,8 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
             <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
-              {chartData.map((item, i) => (
-                <Cell key={i} fill={getBrandColor(item.count, maxCount)} />
+              {chartData.map((_, i) => (
+                <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
               ))}
             </Bar>
           </BarChart>
@@ -109,19 +98,15 @@ function NpsPieChart({ stats }: { stats: SurveyStats }) {
         </p>
       </div>
       <div className="p-5 pt-1">
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={220}>
           <PieChart>
             <Pie
               data={pieData}
               dataKey="value"
               nameKey="name"
               cx="50%"
-              cy="50%"
+              cy="45%"
               outerRadius={75}
-              label={({ name, percent }: { name?: string; percent?: number }) =>
-                `${name ?? ''} ${((percent ?? 0) * 100).toFixed(0)}%`
-              }
-              labelLine={false}
               fontSize={12}
             >
               {pieData.map((entry, i) => (
@@ -129,7 +114,15 @@ function NpsPieChart({ stats }: { stats: SurveyStats }) {
               ))}
             </Pie>
             <Tooltip contentStyle={tooltipStyle} formatter={(v) => [`${v}명`, '']} />
-            <Legend iconSize={10} wrapperStyle={{ fontSize: '12px' }} />
+            <Legend
+              iconSize={10}
+              wrapperStyle={{ fontSize: '12px' }}
+              formatter={(value, entry: any) => {
+                const total = pieData.reduce((s, d) => s + d.value, 0)
+                const pct = total > 0 ? Math.round((entry.payload.value / total) * 100) : 0
+                return `${value} ${pct}% (${entry.payload.value}명)`
+              }}
+            />
           </PieChart>
         </ResponsiveContainer>
       </div>
@@ -147,7 +140,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
         <h4 className="text-sm font-semibold text-zinc-800">{title}</h4>
       </div>
       <div className="px-5 pb-5 space-y-2.5">
-        {data.slice(0, 10).map((item) => (
+        {data.slice(0, 10).map((item, i) => (
           <div key={item.label} className="flex items-center gap-3">
             <span className="w-24 shrink-0 text-xs text-zinc-600 truncate" title={item.label}>{item.label}</span>
             <div className="flex-1 h-5 bg-zinc-100 rounded-full overflow-hidden">
@@ -155,7 +148,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${(item.count / max) * 100}%`,
-                  backgroundColor: getBrandColor(item.count, max),
+                  backgroundColor: CHART_COLORS[i % CHART_COLORS.length],
                 }}
               />
             </div>
