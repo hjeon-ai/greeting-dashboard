@@ -184,9 +184,9 @@ function SurveyPanel({ stats, type }: { stats: SurveyStats; type: SubTabKey }) {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
         <KpiCard label="총 응답 수" value={`${stats.totalCount}명`} />
         <KpiCard
-          label="평균 추천 점수"
-          value={stats.avgNps !== null ? `${stats.avgNps}점` : '-'}
-          sub="0-10점 척도"
+          label="NPS"
+          value={`${stats.nps > 0 ? '+' : ''}${stats.nps}`}
+          sub="추천-비추천 (%p)"
         />
         <KpiCard
           label="평균 면접 경험"

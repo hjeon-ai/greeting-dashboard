@@ -20,19 +20,7 @@ interface Props {
   passedApplicants: PassedApplicant[]
 }
 
-// 브랜드 그라데이션 (01→13: 밝은→어두운), base=#40E2FF(index 5)
-const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
-
-// rank 0 = 가장 높은 비중 = 가장 진한 색
-function getBrandChartColor(rank: number, total: number): string {
-  const minIdx = 5, maxIdx = 11
-  if (total <= 1) return BRAND_GRADIENT[maxIdx]
-  const ratio = rank / (total - 1)
-  return BRAND_GRADIENT[Math.round(maxIdx - ratio * (maxIdx - minIdx))]
-}
-
-// 트렌드 라인용 고정 3색 (진→중→연)
-const TREND_COLORS = ['#054D5A', '#40E2FF', '#A3EBFF']
+const CHANNEL_COLORS = ['#3b82f6', '#06b6d4', '#f59e0b', '#8b5cf6', '#f43f5e', '#d946ef', '#f97316', '#14b8a6']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -93,8 +81,8 @@ export default function ChannelTab({ channelStats, passedApplicants }: Props) {
                   <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
                   <Tooltip contentStyle={tooltipStyle} />
                   <Bar dataKey="count" name="합격자" radius={[4, 4, 0, 0]}>
-                    {channelStats.slice(0, 8).map((_, i) => (
-                      <Cell key={i} fill={getBrandChartColor(i, Math.min(channelStats.length, 8))} />
+                    {channelStats.map((_, i) => (
+                      <Cell key={i} fill={CHANNEL_COLORS[i % CHANNEL_COLORS.length]} />
                     ))}
                   </Bar>
                 </BarChart>
@@ -121,7 +109,7 @@ export default function ChannelTab({ channelStats, passedApplicants }: Props) {
                   <Tooltip contentStyle={tooltipStyle} />
                   <Legend iconSize={10} wrapperStyle={{ fontSize: '12px' }} />
                   {top3Channels.map((ch, i) => (
-                    <Line key={ch} type="monotone" dataKey={ch} stroke={TREND_COLORS[i]} strokeWidth={2} dot={{ r: 4, fill: TREND_COLORS[i], strokeWidth: 2, stroke: 'white' }} />
+                    <Line key={ch} type="monotone" dataKey={ch} stroke={CHANNEL_COLORS[i]} strokeWidth={2} dot={{ r: 4, fill: CHANNEL_COLORS[i], strokeWidth: 2, stroke: 'white' }} />
                   ))}
                 </LineChart>
               </ResponsiveContainer>

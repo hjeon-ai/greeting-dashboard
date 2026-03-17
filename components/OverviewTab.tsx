@@ -23,16 +23,7 @@ interface Props {
   openingDetails: OpeningDetail[]
 }
 
-// 브랜드 그라데이션 (01→13: 밝은→어두운), base=#40E2FF(index 5)
-const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
-
-// rank 0 = 가장 높은 비중 = 가장 진한 색(index 11 → 5 방향)
-function getBrandChartColor(rank: number, total: number): string {
-  const minIdx = 5, maxIdx = 11
-  if (total <= 1) return BRAND_GRADIENT[maxIdx]
-  const ratio = rank / (total - 1)
-  return BRAND_GRADIENT[Math.round(maxIdx - ratio * (maxIdx - minIdx))]
-}
+const PIE_COLORS = ['#3b82f6', '#06b6d4', '#f59e0b', '#8b5cf6', '#f43f5e', '#d946ef', '#f97316', '#14b8a6']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -79,7 +70,7 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
               <ResponsiveContainer width="100%" height={260}>
                 <PieChart>
                   <Pie
-                    data={channelStats.slice(0, 8)}
+                    data={channelStats}
                     dataKey="count"
                     nameKey="channel"
                     cx="50%"
@@ -89,8 +80,8 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
                     labelLine={false}
                     fontSize={12}
                   >
-                    {channelStats.slice(0, 8).map((_, i) => (
-                      <Cell key={i} fill={getBrandChartColor(i, Math.min(channelStats.length, 8))} />
+                    {channelStats.map((_, i) => (
+                      <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
                     ))}
                   </Pie>
                   <Tooltip contentStyle={tooltipStyle} />

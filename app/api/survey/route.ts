@@ -126,8 +126,9 @@ function computeStats(
   const experiences = responses.map((r) => (qIds.experience ? getNumericAnswer(r.answers, qIds.experience) : null))
   const difficulties = responses.map((r) => (qIds.difficulty ? getNumericAnswer(r.answers, qIds.difficulty) : null))
   const conveniences = responses.map((r) => (qIds.convenience ? getNumericAnswer(r.answers, qIds.convenience) : null))
-  // 2025-09-25 이전 응답은 5점 만점 척도 → 10점으로 변환 (×2)
   const NPS_SCALE_CUTOFF = '2025-09-25'
+
+  // 분포 차트용: 5점 척도는 ×2 정규화 (0-10 범위로 표시)
   const npsList = responses.map((r) => {
     if (!qIds.nps) return null
     let n = getNumericAnswer(r.answers, qIds.nps)
@@ -135,13 +136,31 @@ function computeStats(
     return n
   })
 
-  const validNps = npsList.filter((n): n is number => n !== null)
-  const promoters = validNps.filter((n) => n >= 9).length
-  const passives = validNps.filter((n) => n >= 7 && n <= 8).length
-  const detractors = validNps.filter((n) => n <= 6).length
-  const npsScore = validNps.length > 0
-    ? Math.round(((promoters - detractors) / validNps.length) * 100)
+  // NPS 분류: 5점 척도(이전) vs 10점 척도(이후)를 각각 올바르게 분류
+  // 5점 척도: 1-2=비추천, 3=중립, 4-5=추천
+  // 10점 척도: 0-6=비추천, 7-8=중립, 9-10=추천
+  let promoters = 0, passives = 0, detractors = 0
+  responses.forEach((r) => {
+    if (!qIds.nps) return
+    const n = getNumericAnswer(r.answers, qIds.nps)
+    if (n === null) return
+    const isOldScale = r.submitDate < NPS_SCALE_CUTOFF && n >= 1 && n <= 5
+    if (isOldScale) {
+      if (n >= 4) promoters++
+      else if (n === 3) passives++
+      else detractors++ // 1-2
+    } else {
+      if (n >= 9) promoters++
+      else if (n >= 7) passives++
+      else detractors++ // 0-6
+    }
+  })
+  const totalWithNps = promoters + passives + detractors
+  const npsScore = totalWithNps > 0
+    ? Math.round(((promoters - detractors) / totalWithNps) * 100)
     : 0
+
+  const validNps = npsList.filter((n): n is number => n !== null)
 
   const cultureArrays = qIds.culture
     ? responses.map((r) => getArrayAnswer(r.answers, qIds.culture!))

@@ -49,20 +49,17 @@ function isInternal(referer: string | null): boolean {
   return lower.includes('사내추천') || lower.includes('내부추천') || lower === 'internal'
 }
 
+function isDirect(referer: string | null): boolean {
+  if (!referer) return false
+  const lower = referer.toLowerCase().replace(/\s+/g, '')
+  return lower.includes('다이렉트') || lower.includes('direct') || lower.includes('소싱')
+}
+
 export default function FunnelTab({ passedApplicants, openings }: Props) {
   const [search, setSearch] = useState('')
   const [filterOpening, setFilterOpening] = useState('')
-  const [filterChannel, setFilterChannel] = useState<'all' | 'internal'>('all')
-  const [filterField, setFilterField] = useState('')
+  const [filterChannel, setFilterChannel] = useState<'all' | 'internal' | 'direct'>('all')
   const [page, setPage] = useState(0)
-
-  // 고유 본부 목록 (전체 데이터 기준)
-  const uniqueFields = useMemo(() => {
-    const fields = passedApplicants
-      .map((a) => a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field)
-      .filter((f): f is string => Boolean(f))
-    return Array.from(new Set(fields)).sort()
-  }, [passedApplicants])
 
   // 공고별 리드타임
   const openingLeadTime = openings
@@ -97,21 +94,21 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
       .filter((a) => {
         const matchSearch = search === '' || a.name.includes(search) || a.email.includes(search)
         const matchOpening = filterOpening === '' || String(a.openingId) === filterOpening
-        const matchChannel = filterChannel === 'all' || isInternal(a.referer)
-        const field = a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field
-        const matchField = filterField === '' || field === filterField
-        return matchSearch && matchOpening && matchChannel && matchField
+        const matchChannel =
+          filterChannel === 'all' ||
+          (filterChannel === 'internal' && isInternal(a.referer)) ||
+          (filterChannel === 'direct' && isDirect(a.referer))
+        return matchSearch && matchOpening && matchChannel
       })
       .sort((a, b) => new Date(b.passDate).getTime() - new Date(a.passDate).getTime())
-  }, [passedApplicants, search, filterOpening, filterChannel, filterField])
+  }, [passedApplicants, search, filterOpening, filterChannel])
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
   const paged = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE)
 
   const handleSearch = (v: string) => { setSearch(v); setPage(0) }
   const handleFilter = (v: string) => { setFilterOpening(v); setPage(0) }
-  const handleChannel = (v: 'all' | 'internal') => { setFilterChannel(v); setPage(0) }
-  const handleField = (v: string) => { setFilterField(v); setPage(0) }
+  const handleChannel = (v: 'all' | 'internal' | 'direct') => { setFilterChannel(v); setPage(0) }
 
   return (
     <div className="space-y-6">
@@ -158,57 +155,26 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
           <h3 className="text-base font-semibold text-zinc-900">합격자 목록</h3>
           <p className="text-sm text-zinc-500 mt-1">총 {filtered.length}명</p>
 
-          {/* 사내추천 탭 */}
+          {/* 채널 탭 */}
           <div className="flex gap-1 mt-4 border-b border-zinc-100 pb-0">
-            {(['all', 'internal'] as const).map((ch) => (
+            {([
+              { key: 'all', label: '전체' },
+              { key: 'internal', label: '사내추천' },
+              { key: 'direct', label: '다이렉트 소싱' },
+            ] as const).map((ch) => (
               <button
-                key={ch}
-                onClick={() => handleChannel(ch)}
+                key={ch.key}
+                onClick={() => handleChannel(ch.key)}
                 className={`px-3 py-1.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
-                  filterChannel === ch
+                  filterChannel === ch.key
                     ? 'border-[#40E2FF] text-zinc-900'
                     : 'border-transparent text-zinc-500 hover:text-zinc-700'
                 }`}
               >
-                {ch === 'all' ? '전체' : '사내추천'}
+                {ch.label}
               </button>
             ))}
           </div>
-
-          {/* 본부 탭 */}
-          {uniqueFields.length > 0 && (
-            <div className="flex gap-1.5 flex-wrap mt-3">
-              <button
-                onClick={() => handleField('')}
-                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                  filterField === ''
-                    ? 'text-zinc-900'
-                    : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200'
-                }`}
-                style={filterField === '' ? { backgroundColor: '#40E2FF' } : {}}
-              >
-                전체 본부
-              </button>
-              {uniqueFields.map((field) => {
-                const color = getFieldColor(field)
-                const isActive = filterField === field
-                return (
-                  <button
-                    key={field}
-                    onClick={() => handleField(field)}
-                    className="rounded-full px-3 py-1 text-xs font-medium transition-colors"
-                    style={
-                      isActive
-                        ? { backgroundColor: color, color: '#fff' }
-                        : { backgroundColor: hexToRgba(color, 0.1), color, border: `1px solid ${hexToRgba(color, 0.3)}` }
-                    }
-                  >
-                    {field}
-                  </button>
-                )
-              })}
-            </div>
-          )}
 
           <div className="flex gap-2 mt-4">
             <div className="relative flex-1">
