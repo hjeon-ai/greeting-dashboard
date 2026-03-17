@@ -43,10 +43,26 @@ function hexToRgba(hex: string, alpha: number): string {
   return `rgba(${r},${g},${b},${alpha})`
 }
 
+function isInternal(referer: string | null): boolean {
+  if (!referer) return false
+  const lower = referer.toLowerCase().replace(/\s+/g, '')
+  return lower.includes('사내추천') || lower.includes('내부추천') || lower === 'internal'
+}
+
 export default function FunnelTab({ passedApplicants, openings }: Props) {
   const [search, setSearch] = useState('')
   const [filterOpening, setFilterOpening] = useState('')
+  const [filterChannel, setFilterChannel] = useState<'all' | 'internal'>('all')
+  const [filterField, setFilterField] = useState('')
   const [page, setPage] = useState(0)
+
+  // 고유 본부 목록 (전체 데이터 기준)
+  const uniqueFields = useMemo(() => {
+    const fields = passedApplicants
+      .map((a) => a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field)
+      .filter((f): f is string => Boolean(f))
+    return Array.from(new Set(fields)).sort()
+  }, [passedApplicants])
 
   // 공고별 리드타임
   const openingLeadTime = openings
@@ -77,24 +93,25 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
   )
 
   const filtered = useMemo(() => {
-    const result = passedApplicants
+    return passedApplicants
       .filter((a) => {
-        const matchSearch =
-          search === '' || a.name.includes(search) || a.email.includes(search)
-        const matchOpening =
-          filterOpening === '' || String(a.openingId) === filterOpening
-        return matchSearch && matchOpening
+        const matchSearch = search === '' || a.name.includes(search) || a.email.includes(search)
+        const matchOpening = filterOpening === '' || String(a.openingId) === filterOpening
+        const matchChannel = filterChannel === 'all' || isInternal(a.referer)
+        const field = a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field
+        const matchField = filterField === '' || field === filterField
+        return matchSearch && matchOpening && matchChannel && matchField
       })
       .sort((a, b) => new Date(b.passDate).getTime() - new Date(a.passDate).getTime())
-    return result
-  }, [passedApplicants, search, filterOpening])
+  }, [passedApplicants, search, filterOpening, filterChannel, filterField])
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
   const paged = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE)
 
-  // 검색/필터 변경 시 페이지 리셋
   const handleSearch = (v: string) => { setSearch(v); setPage(0) }
   const handleFilter = (v: string) => { setFilterOpening(v); setPage(0) }
+  const handleChannel = (v: 'all' | 'internal') => { setFilterChannel(v); setPage(0) }
+  const handleField = (v: string) => { setFilterField(v); setPage(0) }
 
   return (
     <div className="space-y-6">
@@ -140,6 +157,59 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
         <div className="p-6 pb-4">
           <h3 className="text-base font-semibold text-zinc-900">합격자 목록</h3>
           <p className="text-sm text-zinc-500 mt-1">총 {filtered.length}명</p>
+
+          {/* 사내추천 탭 */}
+          <div className="flex gap-1 mt-4 border-b border-zinc-100 pb-0">
+            {(['all', 'internal'] as const).map((ch) => (
+              <button
+                key={ch}
+                onClick={() => handleChannel(ch)}
+                className={`px-3 py-1.5 text-sm font-medium border-b-2 -mb-px transition-colors ${
+                  filterChannel === ch
+                    ? 'border-[#40E2FF] text-zinc-900'
+                    : 'border-transparent text-zinc-500 hover:text-zinc-700'
+                }`}
+              >
+                {ch === 'all' ? '전체' : '사내추천'}
+              </button>
+            ))}
+          </div>
+
+          {/* 본부 탭 */}
+          {uniqueFields.length > 0 && (
+            <div className="flex gap-1.5 flex-wrap mt-3">
+              <button
+                onClick={() => handleField('')}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                  filterField === ''
+                    ? 'text-zinc-900'
+                    : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200'
+                }`}
+                style={filterField === '' ? { backgroundColor: '#40E2FF' } : {}}
+              >
+                전체 본부
+              </button>
+              {uniqueFields.map((field) => {
+                const color = getFieldColor(field)
+                const isActive = filterField === field
+                return (
+                  <button
+                    key={field}
+                    onClick={() => handleField(field)}
+                    className="rounded-full px-3 py-1 text-xs font-medium transition-colors"
+                    style={
+                      isActive
+                        ? { backgroundColor: color, color: '#fff' }
+                        : { backgroundColor: hexToRgba(color, 0.1), color, border: `1px solid ${hexToRgba(color, 0.3)}` }
+                    }
+                  >
+                    {field}
+                  </button>
+                )
+              })}
+            </div>
+          )}
+
           <div className="flex gap-2 mt-4">
             <div className="relative flex-1">
               <svg className="absolute left-2.5 top-2.5 h-4 w-4 text-zinc-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -28,12 +28,13 @@ type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 // 브랜드 그라데이션 팔레트 (01~13: 밝은 → 어두운)
 const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
 
-// 비율에 따라 브랜드 그라데이션 색 반환 (높을수록 진함)
+// 비율에 따라 브랜드 그라데이션 색 반환
+// 가장 진한 색 = base(#40E2FF, index 5), 낮을수록 연해짐
 function getBrandColor(count: number, max: number): string {
   if (count === 0 || max === 0) return '#e4e4e7'
   const ratio = count / max // 0~1
-  const minIdx = 3  // #76E5FF (최소 가시 밝기)
-  const maxIdx = 11 // #054D5A (최대 어두움)
+  const minIdx = 2  // #A3EBFF (최소 가시 밝기)
+  const maxIdx = 5  // #40E2FF (base = 최대 진함)
   return BRAND_GRADIENT[Math.round(minIdx + ratio * (maxIdx - minIdx))]
 }
 
