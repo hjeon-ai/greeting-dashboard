@@ -169,7 +169,7 @@ export default function Dashboard() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-zinc-50">
         <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-zinc-800" />
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-[#40E2FF]" />
           <p className="text-sm text-zinc-500">데이터 불러오는 중...</p>
         </div>
       </div>
@@ -184,7 +184,7 @@ export default function Dashboard() {
         </div>
         <button
           onClick={fetchData}
-          className="rounded-md text-sm font-medium h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 transition-colors"
+          className="rounded-md text-sm font-medium h-9 px-4 py-2 bg-[#40E2FF] text-zinc-900 hover:bg-[#1cd6f7] transition-colors"
         >
           다시 시도
         </button>
@@ -240,7 +240,7 @@ export default function Dashboard() {
                 onClick={() => setActiveTab(tab.key)}
                 className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
                   activeTab === tab.key
-                    ? 'border-zinc-900 text-zinc-900'
+                    ? 'border-[#40E2FF] text-zinc-900'
                     : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
                 }`}
               >
@@ -285,7 +285,7 @@ export default function Dashboard() {
           surveyLoading ? (
             <div className="flex items-center justify-center py-24">
               <div className="flex flex-col items-center gap-3">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-zinc-800" />
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-200 border-t-[#40E2FF]" />
                 <p className="text-sm text-zinc-500">설문 데이터 불러오는 중...</p>
               </div>
             </div>
@@ -296,7 +296,7 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={fetchSurvey}
-                className="rounded-md text-sm font-medium h-9 px-4 py-2 bg-zinc-900 text-white hover:bg-zinc-800 transition-colors"
+                className="rounded-md text-sm font-medium h-9 px-4 py-2 bg-[#40E2FF] text-zinc-900 hover:bg-[#1cd6f7] transition-colors"
               >
                 다시 시도
               </button>

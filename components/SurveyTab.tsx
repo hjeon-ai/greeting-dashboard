@@ -26,8 +26,8 @@ const SUB_TABS = [
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
 const NPS_COLORS = ['#10b981', '#f59e0b', '#ef4444']
-const BAR_COLOR = '#3b82f6'
-const HORIZONTAL_COLORS = ['#6366f1', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#ede9fe']
+const BAR_COLOR = '#40E2FF'
+const HORIZONTAL_COLORS = ['#40E2FF', '#22d3ee', '#67e8f9', '#a5f3fc', '#0ea5e9', '#38bdf8']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -70,7 +70,7 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
 
 function NpsDistributionChart({ distribution }: { distribution: number[] }) {
   const chartData = distribution.map((count, i) => ({ label: `${i}점`, count }))
-  const colors = ['#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#94a3b8','#60a5fa','#60a5fa','#34d399','#34d399']
+  const colors = ['#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#93c5fd','#93c5fd','#40E2FF','#40E2FF']
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
@@ -238,7 +238,7 @@ export default function SurveyTab({ data }: Props) {
             onClick={() => setActiveSubTab(tab.key)}
             className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
               activeSubTab === tab.key
-                ? 'border-zinc-900 text-zinc-900'
+                ? 'border-[#40E2FF] text-zinc-900'
                 : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
             }`}
           >

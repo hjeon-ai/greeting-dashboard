@@ -20,7 +20,7 @@ interface Props {
   passedApplicants: PassedApplicant[]
 }
 
-const CHANNEL_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+const CHANNEL_COLORS = ['#40E2FF', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -143,7 +143,7 @@ export default function ChannelTab({ channelStats, passedApplicants }: Props) {
                     <tr key={c.channel} className="border-b border-zinc-100 hover:bg-zinc-50 transition-colors">
                       <td className="py-3 font-medium text-zinc-800">{c.channel}</td>
                       <td className="py-3 text-right">
-                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-zinc-900 px-2 text-xs font-medium text-white">
+                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full px-2 text-xs font-medium text-zinc-900" style={{ backgroundColor: '#40E2FF' }}>
                           {c.count}
                         </span>
                       </td>

@@ -23,7 +23,7 @@ interface Props {
   openingDetails: OpeningDetail[]
 }
 
-const PIE_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+const PIE_COLORS = ['#40E2FF', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -51,7 +51,7 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
                 <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#71717a' }} axisLine={{ stroke: '#e4e4e7' }} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
                 <Tooltip contentStyle={tooltipStyle} />
-                <Line type="monotone" dataKey="passed" name="합격" stroke="#3b82f6" strokeWidth={2} dot={{ r: 4, fill: '#3b82f6', strokeWidth: 2, stroke: 'white' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="passed" name="합격" stroke="#40E2FF" strokeWidth={2} dot={{ r: 4, fill: '#40E2FF', strokeWidth: 2, stroke: 'white' }} activeDot={{ r: 6 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -120,7 +120,7 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
                       <td className="py-3 text-zinc-600">{d.field ?? '-'}</td>
                       <td className="py-3 text-zinc-600">{d.career ?? '-'}</td>
                       <td className="py-3 text-right">
-                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-zinc-900 px-2 text-xs font-medium text-white">
+                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full px-2 text-xs font-medium text-zinc-900" style={{ backgroundColor: '#40E2FF' }}>
                           {d.passedCount}
                         </span>
                       </td>
