@@ -197,7 +197,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-zinc-50">
       <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-sm">
-        <div className="h-1 bg-gradient-to-r from-[#A3EBFF] via-[#40E2FF] to-[#054D5A]" />
         <div className="max-w-7xl mx-auto flex h-14 items-center justify-between px-6">
           <div className="flex items-center gap-3">
             <h1 className="text-lg font-semibold tracking-tight text-zinc-900">채용(그리팅) 대시보드</h1>
