@@ -187,7 +187,7 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
                           </div>
                         </td>
                         <td className="py-3">
-                          <span className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-xs text-zinc-600 max-w-[160px] truncate">
+                          <span className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-xs text-zinc-600 break-keep">
                             {a.openingTitle}
                           </span>
                         </td>

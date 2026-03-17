@@ -16,14 +16,17 @@ function KpiCard({
   icon: React.ReactNode
 }) {
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white shadow-sm p-6">
-      <div className="flex items-center justify-between">
-        <p className="text-sm font-medium text-zinc-500">{label}</p>
-        <div style={{ color: '#40E2FF' }}>{icon}</div>
-      </div>
-      <div className="mt-2">
-        <p className="text-2xl font-bold tracking-tight text-zinc-900">{value}</p>
-        {sub && <p className="text-xs text-zinc-400 mt-1">{sub}</p>}
+    <div className="rounded-lg border border-zinc-200 bg-white shadow-sm overflow-hidden">
+      <div className="h-1 bg-gradient-to-r from-[#40E2FF] to-[#1AB5D0]" />
+      <div className="p-6">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-medium text-zinc-500">{label}</p>
+          <div style={{ color: '#40E2FF' }}>{icon}</div>
+        </div>
+        <div className="mt-2">
+          <p className="text-2xl font-bold tracking-tight text-zinc-900">{value}</p>
+          {sub && <p className="text-xs text-zinc-400 mt-1">{sub}</p>}
+        </div>
       </div>
     </div>
   )

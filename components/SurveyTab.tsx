@@ -10,6 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
+  type BarProps,
 } from 'recharts'
 import type { AllSurveyData, SurveyStats } from '@/lib/types'
 
@@ -26,8 +27,11 @@ const SUB_TABS = [
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
 const NPS_COLORS = ['#10b981', '#f59e0b', '#ef4444']
-const BAR_COLOR = '#40E2FF'
-const HORIZONTAL_COLORS = ['#40E2FF', '#22d3ee', '#67e8f9', '#a5f3fc', '#0ea5e9', '#38bdf8']
+// 브랜드 그라데이션 팔레트 (01~13: 밝은 → 어두운)
+const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
+// 1-5점 척도 막대 그라데이션 (04→08)
+const SCORE_GRADIENT = ['#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0']
+const HORIZONTAL_COLORS = ['#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678']
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -60,7 +64,11 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
             <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#71717a' }} axisLine={{ stroke: '#e4e4e7' }} tickLine={false} />
             <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
-            <Bar dataKey="count" name="응답 수" fill={BAR_COLOR} radius={[3, 3, 0, 0]} />
+            <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
+              {chartData.map((_, i) => (
+                <Cell key={i} fill={SCORE_GRADIENT[i % SCORE_GRADIENT.length]} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -70,7 +78,8 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
 
 function NpsDistributionChart({ distribution }: { distribution: number[] }) {
   const chartData = distribution.map((count, i) => ({ label: `${i}점`, count }))
-  const colors = ['#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#cbd5e1','#93c5fd','#93c5fd','#40E2FF','#40E2FF']
+  // 0-6점: 밝은 브랜드 계열, 7-8점: 중간, 9-10점: 브랜드 base
+  const colors = ['#EBF9FF','#C9F3FF','#A3EBFF','#76E5FF','#76E5FF','#56E3FF','#56E3FF','#2DCDE8','#2DCDE8','#40E2FF','#40E2FF']
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
