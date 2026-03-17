@@ -31,18 +31,7 @@ type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 // 차트 공통 색상 팔레트 (파이차트와 동일)
 const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#FFD900', '#06b6d4']
 
-// 분위기 태그 그라데이션: #FFF1A3(진함) → #FFFDE8(연함), n개 생성
-function keyColorGradient(n: number): string[] {
-  const s = { r: 0xFF, g: 0xF1, b: 0xA3 }
-  const e = { r: 0xFF, g: 0xFD, b: 0xE8 }
-  return Array.from({ length: n }, (_, i) => {
-    const t = n <= 1 ? 0 : i / (n - 1)
-    const r = Math.round(s.r + t * (e.r - s.r))
-    const g = Math.round(s.g + t * (e.g - s.g))
-    const b = Math.round(s.b + t * (e.b - s.b))
-    return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`
-  })
-}
+const CULTURE_TAG_COLOR = '#E2E2E2'
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -155,7 +144,7 @@ function HorizontalBarChart({ data, title, useKeyColor = false }: {
   if (data.length === 0) return null
   const max = Math.max(...data.map((d) => d.count), 1)
   const sliced = data.slice(0, 10)
-  const colors = useKeyColor ? keyColorGradient(sliced.length) : null
+  const colors = useKeyColor ? sliced.map(() => CULTURE_TAG_COLOR) : null
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
