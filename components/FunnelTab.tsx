@@ -27,6 +27,22 @@ const tooltipStyle = {
 
 const PAGE_SIZE = 10
 
+// Chart Series 8색 (image 2 기준)
+const FIELD_COLORS = ['#3b82f6', '#06b6d4', '#f59e0b', '#8b5cf6', '#f43f5e', '#d946ef', '#f97316', '#14b8a6']
+
+function getFieldColor(field: string): string {
+  let hash = 0
+  for (let i = 0; i < field.length; i++) hash = field.charCodeAt(i) + ((hash << 5) - hash)
+  return FIELD_COLORS[Math.abs(hash) % FIELD_COLORS.length]
+}
+
+function hexToRgba(hex: string, alpha: number): string {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgba(${r},${g},${b},${alpha})`
+}
+
 export default function FunnelTab({ passedApplicants, openings }: Props) {
   const [search, setSearch] = useState('')
   const [filterOpening, setFilterOpening] = useState('')
@@ -187,9 +203,22 @@ export default function FunnelTab({ passedApplicants, openings }: Props) {
                           </div>
                         </td>
                         <td className="py-3">
-                          <span className="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-xs text-zinc-600 break-keep">
-                            {a.openingTitle}
-                          </span>
+                          <div className="flex flex-col gap-1 items-start">
+                            <span className="text-xs text-zinc-700 break-keep">{a.openingTitle}</span>
+                            {(() => {
+                              const field = a.desiredJobPositions.find((p) => p.priority === 1)?.field ?? a.desiredJobPositions[0]?.field
+                              if (!field) return null
+                              const color = getFieldColor(field)
+                              return (
+                                <span
+                                  className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium"
+                                  style={{ backgroundColor: hexToRgba(color, 0.12), color, border: `1px solid ${hexToRgba(color, 0.3)}` }}
+                                >
+                                  {field}
+                                </span>
+                              )
+                            })()}
+                          </div>
                         </td>
                         <td className="py-3 text-zinc-500 whitespace-nowrap">
                           {new Date(a.passDate).toLocaleDateString('ko-KR')}

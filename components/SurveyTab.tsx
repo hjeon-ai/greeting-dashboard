@@ -10,7 +10,6 @@ import {
   Tooltip,
   ResponsiveContainer,
   Cell,
-  type BarProps,
 } from 'recharts'
 import type { AllSurveyData, SurveyStats } from '@/lib/types'
 
@@ -26,12 +25,17 @@ const SUB_TABS = [
 
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
-const NPS_COLORS = ['#10b981', '#f59e0b', '#ef4444']
 // 브랜드 그라데이션 팔레트 (01~13: 밝은 → 어두운)
 const BRAND_GRADIENT = ['#EBF9FF', '#C9F3FF', '#A3EBFF', '#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678', '#054D5A', '#033440']
-// 1-5점 척도 막대 그라데이션 (04→08)
-const SCORE_GRADIENT = ['#76E5FF', '#56E3FF', '#40E2FF', '#2DCDE8', '#1AB5D0']
-const HORIZONTAL_COLORS = ['#40E2FF', '#2DCDE8', '#1AB5D0', '#0D9AB8', '#0A80A0', '#076678']
+
+// 비율에 따라 브랜드 그라데이션 색 반환 (높을수록 진함)
+function getBrandColor(count: number, max: number): string {
+  if (count === 0 || max === 0) return '#e4e4e7'
+  const ratio = count / max // 0~1
+  const minIdx = 3  // #76E5FF (최소 가시 밝기)
+  const maxIdx = 11 // #054D5A (최대 어두움)
+  return BRAND_GRADIENT[Math.round(minIdx + ratio * (maxIdx - minIdx))]
+}
 
 const tooltipStyle = {
   borderRadius: '8px',
@@ -52,6 +56,7 @@ function KpiCard({ label, value, sub }: { label: string; value: string; sub?: st
 
 function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
   const chartData = data.map((count, i) => ({ label: `${i + 1}점`, count }))
+  const maxCount = Math.max(...chartData.map((d) => d.count), 1)
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="p-5 pb-2">
@@ -65,8 +70,8 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
             <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
-              {chartData.map((_, i) => (
-                <Cell key={i} fill={SCORE_GRADIENT[i % SCORE_GRADIENT.length]} />
+              {chartData.map((item, i) => (
+                <Cell key={i} fill={getBrandColor(item.count, maxCount)} />
               ))}
             </Bar>
           </BarChart>
@@ -78,8 +83,7 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
 
 function NpsDistributionChart({ distribution }: { distribution: number[] }) {
   const chartData = distribution.map((count, i) => ({ label: `${i}점`, count }))
-  // 0-6점: 밝은 브랜드 계열, 7-8점: 중간, 9-10점: 브랜드 base
-  const colors = ['#EBF9FF','#C9F3FF','#A3EBFF','#76E5FF','#76E5FF','#56E3FF','#56E3FF','#2DCDE8','#2DCDE8','#40E2FF','#40E2FF']
+  const maxCount = Math.max(...chartData.map((d) => d.count), 1)
 
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
@@ -95,8 +99,8 @@ function NpsDistributionChart({ distribution }: { distribution: number[] }) {
             <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
-              {chartData.map((_, i) => (
-                <Cell key={i} fill={colors[i]} />
+              {chartData.map((item, i) => (
+                <Cell key={i} fill={getBrandColor(item.count, maxCount)} />
               ))}
             </Bar>
           </BarChart>
@@ -116,7 +120,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
         <h4 className="text-sm font-semibold text-zinc-800">{title}</h4>
       </div>
       <div className="px-5 pb-5 space-y-2.5">
-        {data.slice(0, 10).map((item, i) => (
+        {data.slice(0, 10).map((item) => (
           <div key={item.label} className="flex items-center gap-3">
             <span className="w-24 shrink-0 text-xs text-zinc-600 truncate" title={item.label}>{item.label}</span>
             <div className="flex-1 h-5 bg-zinc-100 rounded-full overflow-hidden">
@@ -124,7 +128,7 @@ function HorizontalBarChart({ data, title }: { data: { label: string; count: num
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${(item.count / max) * 100}%`,
-                  backgroundColor: HORIZONTAL_COLORS[i % HORIZONTAL_COLORS.length],
+                  backgroundColor: getBrandColor(item.count, max),
                 }}
               />
             </div>
