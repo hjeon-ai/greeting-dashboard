@@ -120,7 +120,7 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
                       <td className="py-3 text-zinc-600">{d.field ?? '-'}</td>
                       <td className="py-3 text-zinc-600">{d.career ?? '-'}</td>
                       <td className="py-3 text-right">
-                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full px-2 text-xs font-medium text-zinc-900" style={{ backgroundColor: '#40E2FF' }}>
+                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-zinc-900 px-2 text-xs font-medium text-white">
                           {d.passedCount}
                         </span>
                       </td>

@@ -75,7 +75,7 @@ export default function ChannelTab({ channelStats, passedApplicants }: Props) {
               <p className="text-sm text-zinc-400 py-8 text-center">데이터가 없습니다</p>
             ) : (
               <ResponsiveContainer width="100%" height={260}>
-                <BarChart data={channelStats.slice(0, 8)} margin={{ top: 8, right: 8, left: -20, bottom: 4 }}>
+                <BarChart data={channelStats} margin={{ top: 8, right: 8, left: -20, bottom: 4 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e4e4e7" vertical={false} />
                   <XAxis dataKey="channel" tick={{ fontSize: 12, fill: '#71717a' }} axisLine={{ stroke: '#e4e4e7' }} tickLine={false} />
                   <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
@@ -143,7 +143,7 @@ export default function ChannelTab({ channelStats, passedApplicants }: Props) {
                     <tr key={c.channel} className="border-b border-zinc-100 hover:bg-zinc-50 transition-colors">
                       <td className="py-3 font-medium text-zinc-800">{c.channel}</td>
                       <td className="py-3 text-right">
-                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full px-2 text-xs font-medium text-zinc-900" style={{ backgroundColor: '#40E2FF' }}>
+                        <span className="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-zinc-900 px-2 text-xs font-medium text-white">
                           {c.count}
                         </span>
                       </td>
