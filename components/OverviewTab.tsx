@@ -51,7 +51,7 @@ export default function OverviewTab({ stats, monthlyTrend, channelStats, opening
                 <XAxis dataKey="month" tick={{ fontSize: 12, fill: '#71717a' }} axisLine={{ stroke: '#e4e4e7' }} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
                 <Tooltip contentStyle={tooltipStyle} />
-                <Line type="monotone" dataKey="passed" name="합격" stroke="#40E2FF" strokeWidth={2} dot={{ r: 4, fill: '#40E2FF', strokeWidth: 2, stroke: 'white' }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="passed" name="합격" stroke="#3b82f6" strokeWidth={2} dot={{ r: 4, fill: '#3b82f6', strokeWidth: 2, stroke: 'white' }} activeDot={{ r: 6 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
