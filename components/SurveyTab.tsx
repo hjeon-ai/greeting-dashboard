@@ -50,6 +50,10 @@ function KpiCard({ label, value, sub }: { label: string; value: string; sub?: st
 
 function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
   const chartData = data.map((count, i) => ({ label: `${i + 1}점`, count }))
+  // 높은 count 순으로 색상 순위 부여 (파랑→초록→주황...)
+  const rankMap = new Map(
+    [...chartData].sort((a, b) => b.count - a.count).map((item, rank) => [item.label, rank])
+  )
   return (
     <div className="rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="p-5 pb-2">
@@ -63,8 +67,8 @@ function ScoreBarChart({ data, title }: { data: number[]; title: string }) {
             <YAxis tick={{ fontSize: 11, fill: '#71717a' }} allowDecimals={false} axisLine={false} tickLine={false} />
             <Tooltip contentStyle={tooltipStyle} />
             <Bar dataKey="count" name="응답 수" radius={[3, 3, 0, 0]}>
-              {chartData.map((_, i) => (
-                <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />
+              {chartData.map((item) => (
+                <Cell key={item.label} fill={CHART_COLORS[(rankMap.get(item.label) ?? 0) % CHART_COLORS.length]} />
               ))}
             </Bar>
           </BarChart>
