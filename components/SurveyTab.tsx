@@ -29,7 +29,7 @@ const SUB_TABS = [
 type SubTabKey = 'interview1' | 'interview2' | 'coffeechat'
 
 // 차트 공통 색상 팔레트 (파이차트와 동일)
-const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#06b6d4']
+const CHART_COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#eab308', '#06b6d4']
 
 const tooltipStyle = {
   borderRadius: '8px',
