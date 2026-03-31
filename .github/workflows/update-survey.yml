@@ -1,9 +1,7 @@
 name: Update Survey Data
 
 on:
-  schedule:
-    - cron: '0 1 * * *'  # 매일 오전 10시 (KST = UTC+9, so 01:00 UTC)
-  workflow_dispatch:       # 수동 실행 가능
+  workflow_dispatch:       # 수동 실행만 (자동 동기화는 Vercel cron에서 처리)
 
 jobs:
   scrape:
