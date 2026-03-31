@@ -1,6 +1,6 @@
-const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const EMAIL = process.env.GREETING_EMAIL;
 const PASSWORD = process.env.GREETING_PASSWORD;
@@ -51,7 +51,7 @@ async function fetchAllResponses(token, formId) {
   return all;
 }
 
-async function loginWithHash(email, passwordHash) {
+async function loginWithAPI(email, passwordHash) {
   console.log('로그인 (직접 API)...');
   const res = await fetch('https://api.greetinghr.com/authn/login/password', {
     method: 'POST',
@@ -59,39 +59,21 @@ async function loginWithHash(email, passwordHash) {
     body: JSON.stringify({ email, platform: 'WEB', password: passwordHash }),
   });
   const json = await res.json();
+  if (!json.success) {
+    console.error('로그인 실패:', json.message || JSON.stringify(json));
+  }
   return json?.data?.accessToken || null;
 }
 
 (async () => {
-  let token = null;
+  // PASSWORD_HASH가 있으면 그대로 사용, 없으면 PASSWORD를 MD5로 변환
+  const hash = PASSWORD_HASH || (PASSWORD ? crypto.createHash('md5').update(PASSWORD).digest('hex') : null);
+  if (!hash) { console.error('비밀번호 또는 해시가 필요합니다'); process.exit(1); }
 
-  // GREETING_PASSWORD_HASH가 있으면 직접 API 로그인 (Playwright 불필요)
-  if (PASSWORD_HASH) {
-    token = await loginWithHash(EMAIL, PASSWORD_HASH);
-    console.log('토큰 획득:', token ? '성공' : '실패');
-    if (!token) { console.error('토큰 획득 실패'); process.exit(1); }
-  } else {
-    const browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext();
-    const page = await context.newPage();
-
-    console.log('로그인 (Playwright)...');
-    await page.goto('https://app.greetinghr.com/login');
-    await page.fill('input[name="email"]', EMAIL);
-    await page.fill('input[name="password"]', PASSWORD);
-
-    const [loginRes] = await Promise.all([
-      page.waitForResponse(res => res.url().includes('/authn/login/password')),
-      page.keyboard.press('Enter'),
-    ]);
-    const loginBody = await loginRes.json();
-    // NOTE: greetinghr API requires raw JWT without "Bearer " prefix
-    token = loginBody?.data?.accessToken || null;
-    console.log('토큰 획득:', token ? '성공' : '실패');
-
-    await browser.close();
-    if (!token) { console.error('토큰 획득 실패'); process.exit(1); }
-  }
+  console.log('PASSWORD_HASH 사용:', !!PASSWORD_HASH, '/ PASSWORD→MD5:', !!PASSWORD && !PASSWORD_HASH);
+  const token = await loginWithAPI(EMAIL, hash);
+  console.log('토큰 획득:', token ? '성공' : '실패');
+  if (!token) { console.error('토큰 획득 실패'); process.exit(1); }
 
   const result = {};
   for (const form of FORMS) {
