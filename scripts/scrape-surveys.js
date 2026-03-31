@@ -103,7 +103,6 @@ async function loginWithHash(email, passwordHash) {
   const totalCount = Object.values(result).filter(Array.isArray).reduce((s, a) => s + a.length, 0);
   if (totalCount === 0) {
     console.error('수집된 데이터가 없어 저장을 건너뜁니다');
-    await browser.close();
     process.exit(1);
   }
 

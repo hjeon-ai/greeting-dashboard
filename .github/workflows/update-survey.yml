@@ -25,6 +25,7 @@ jobs:
         env:
           GREETING_EMAIL: ${{ secrets.GREETING_EMAIL }}
           GREETING_PASSWORD: ${{ secrets.GREETING_PASSWORD }}
+          GREETING_PASSWORD_HASH: ${{ secrets.GREETING_PASSWORD_HASH }}
         run: node scripts/scrape-surveys.js
 
       - name: Commit and push data
