@@ -1,6 +1,2725 @@
 {
   "interview1": [
     {
+      "name": "임병관",
+      "jobTitle": "네트워크 / 인프라 솔루션 엔지니어 채용 (3년 이상)",
+      "submitDate": "2026-03-31T02:18:38Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412344,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412341,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412346,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 412347,
+              "content": "쾌적하고 편안한 근무 환경",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 412348,
+              "content": "성장과 학습을 장려하는 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412342,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412345,
+              "content": "편안한 분위기에서 진행됐습니다",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 412343,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "김시준",
+      "jobTitle": "APM 솔루션 엔지니어 채용 (3년 이상)",
+      "submitDate": "2026-03-30T02:16:25Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 411254,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 411251,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 411255,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 411252,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 411253,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "윤주해",
+      "jobTitle": "QA Specialist 채용 (1년 이상)",
+      "submitDate": "2026-03-27T07:04:19Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 409694,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 409691,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 409695,
+              "content": "유연하고 수평적인 조직 문화",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 409692,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 409693,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "김준",
+      "jobTitle": "구축 사업 PM 채용 (10년 이상)",
+      "submitDate": "2026-03-25T07:03:10Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 407002,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406999,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 407004,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 407000,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 407003,
+              "content": "면접 분위기 등 전반적 과정에 있어, 배려해주셔서 감사합니다.",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 407001,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "허지윤",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-22T06:29:34Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404352,
+              "content": "1",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404349,
+              "content": "1",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404354,
+              "content": "다소 경직되고 형식적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 404355,
+              "content": "제한적이거나 일방적인 소통",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 404356,
+              "content": "안내가 불친절하거나 이해하기 어려움",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404350,
+              "content": "2",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404353,
+              "content": "면접관들이 직무에 대해서 안물어보고 집에서 분리수거 할 수 있는 애 뽑겠다고 함. 너무 쉬운 질문 위주의 형식적인 질문을 했고 면접자의 말이 마음에 안들면 답이 정해져있는듯이 비아냥거림",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 404351,
+              "content": "1",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "이길령",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-19T13:23:23Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402643,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402640,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402645,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402646,
+              "content": "유연하고 수평적인 조직 문화",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402647,
+              "content": "쾌적하고 편안한 근무 환경",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402648,
+              "content": "성장과 학습을 장려하는 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402641,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402644,
+              "content": "면접의 전 과정에서 지원자를 존중해주시는 분위기였습니다.\n\n면접을 준비하고 진행하는 과정에서 엑셈에 대한 관심과 애정이 더 커졌으며, 이번에 기회가 닿지 않더라도 다시 한번 도전하고 싶을 만큼 좋은 경험이었습니다.\n\n감사합니다. ",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402642,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "주은정",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-19T11:34:55Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402521,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402518,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402523,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402524,
+              "content": "유연하고 수평적인 조직 문화",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402525,
+              "content": "쾌적하고 편안한 근무 환경",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402526,
+              "content": "성장과 학습을 장려하는 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402519,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402522,
+              "content": "면접 전 여러 차례 메일과 문자로 진행 상황을 공유해주신 덕분에 긴장을 덜고 면접에 집중할 수 있어 좋았습니다. 안내 과정부터 면접자를 존중해준다는 느낌이 들어 감사했습니다.",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402520,
+              "content": "9",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "양현지",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-19T09:24:01Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402214,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402211,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402215,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402216,
+              "content": "유연하고 수평적인 조직 문화",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402217,
+              "content": "쾌적하고 편안한 근무 환경",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402212,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402213,
+              "content": "8",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "오윤서",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-19T08:28:56Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402171,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402168,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402172,
+              "content": "유연하고 수평적인 조직 문화",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402169,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402170,
+              "content": "8",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "탁수림",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-19T08:17:18Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12632,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12642,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402119,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12634,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402116,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12750,
+            "title": "면접 경험을 통해 엑셈의 분위기나 문화를 어떻게 느끼셨나요?",
+            "type": "MULTI_SELECT",
+            "description": "면접 과정을 통해 느낀 회사의 분위기나 소통 방식, 회사에 오셨을 때 느낀 조직 문화 등 해당하는 항목을 모두 선택해주세요. (다중 선택 가능)",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": true,
+              "options": [
+                "소통이 원활하고 개방적인 분위기",
+                "다소 경직되고 형식적인 분위기",
+                "유연하고 수평적인 조직 문화",
+                "제한적이거나 일방적인 소통",
+                "쾌적하고 편안한 근무 환경",
+                "안내가 불친절하거나 이해하기 어려움",
+                "성장과 학습을 장려하는 분위기",
+                "원활하지 않은 면접 진행"
+              ],
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": 1,
+              "maxSelect": 5,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402121,
+              "content": "소통이 원활하고 개방적인 분위기",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            },
+            {
+              "id": 402122,
+              "content": "쾌적하고 편안한 근무 환경",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12635,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402117,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12645,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402120,
+              "content": "면접 분위기를 편한 분위기로 이끌어주셔서 긴장을 많이 낮출 수 있었습니다. 경청해 주시고 중간중간 유머도 던져주셔서 좋은 경험이 된 것 같습니다! \n주차도 지원해주셔서 편하게 주차 할 수 있었고 대기환경도 쾌적했습니다\n아쉬웠던 점은 인터뷰 안내 메일에 면접 장소 안내가 간단하게만 나와있어 방문증 수령 위치나 담당자 연락 안내까지 포함되면 좋을 것 같습니다",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12638,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 402118,
+              "content": "10",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "이은정",
       "jobTitle": "서비스 기획자 채용 (신입)",
       "submitDate": "2026-03-19T08:07:27Z",
@@ -23374,6 +26093,522 @@
   ],
   "interview2": [
     {
+      "name": "문상수",
+      "jobTitle": "솔루션 엔지니어 채용 (2년 이상)",
+      "submitDate": "2026-03-24T12:01:53Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12647,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12648,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406145,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12649,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406146,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12664,
+            "title": "면접 과정 중 제공된 편의가 면접 경험에 얼마나 도움이 되었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 도움되지 않았음",
+                "maxLabel": "매우 도움되었음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406149,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12650,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406147,
+              "content": "3",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12665,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12653,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 406148,
+              "content": "9",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "주은정",
+      "jobTitle": "서비스 기획자 채용 (신입)",
+      "submitDate": "2026-03-24T08:48:30Z",
+      "answers": [
+        {
+          "question": {
+            "id": 12647,
+            "title": "※ 설문 응답은 공개되지 않으며, 채용 프로세스에 어떠한 영향도 미치지 않습니다.",
+            "type": "ANNOUNCEMENT",
+            "description": "오직 더 나은 면접 경험을 위한 피드백으로만 활용될 예정이니, 솔직한 응답을 부탁드립니다.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": []
+        },
+        {
+          "question": {
+            "id": 12648,
+            "title": "면접 제안 시, 당사의 안내가 이해하기 쉽고 충분한 정보를 포함하고 있었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 그렇지 않음",
+                "maxLabel": "매우 그러함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405891,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12649,
+            "title": "면접 경험이 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 부정적임",
+                "maxLabel": "매우 긍정적임"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405892,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12664,
+            "title": "면접 과정 중 제공된 편의가 면접 경험에 얼마나 도움이 되었나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "전혀 도움되지 않았음",
+                "maxLabel": "매우 도움되었음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405895,
+              "content": "5",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12650,
+            "title": "면접 난이도는 전반적으로 어떠셨나요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 5,
+                "minLabel": "매우 쉬웠음",
+                "maxLabel": "매우 어려웠음"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405893,
+              "content": "4",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12665,
+            "title": "면접 진행 과정에서 좋았던 점이나 아쉬웠던 점, 혹은 추가로 전달하고 싶은 의견이 있다면 자유롭게 공유해주세요.",
+            "type": "LONG_TEXT",
+            "description": "예 : 질문 내용, 면접 분위기, 대기 환경, 안내 과정 등 편하게 말씀해주세요.",
+            "isRequired": false,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": null
+            },
+            "validation": {
+              "maxLength": 250,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405896,
+              "content": "전반적인 면접 프로세스가 매우 친절하고 체계적이어서 존중받는 느낌을 받았습니다. 엑셈의 가치관이 면접 과정에서도 일관되게 이어진다는 인상을 받아 회사에 대한 신뢰가 더 커지게 되는 계기가 되었습니다.\n\n비록 짧은 시간이었지만 엑셈의 비전에 제가 어떻게 기여할 수 있을지 진지하게 고민해 볼 수 있었던 귀한 경험이었습니다. 좋은 기회를 주셔서 감사합니다:)",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        },
+        {
+          "question": {
+            "id": 12653,
+            "title": "다른 지인분들에게 엑셈의 지원을 추천하시겠어요?",
+            "type": "SCORE",
+            "description": "",
+            "isRequired": true,
+            "property": {
+              "terms": null,
+              "hasDirectInput": null,
+              "options": null,
+              "allowMultiUpload": false,
+              "scoreAttribute": {
+                "minScore": 0,
+                "maxScore": 10,
+                "minLabel": "매우 추천하지 않음",
+                "maxLabel": "매우 추천함"
+              }
+            },
+            "validation": {
+              "maxLength": null,
+              "minSelect": null,
+              "maxSelect": null,
+              "allowedFileExtensions": null,
+              "maxFileSize": null,
+              "dateFormat": null
+            },
+            "attachments": []
+          },
+          "answers": [
+            {
+              "id": 405894,
+              "content": "9",
+              "type": "STRING",
+              "fileAttribute": null,
+              "downloadUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "김영주",
       "jobTitle": "네트워크 / 인프라 솔루션 엔지니어 채용 (3년 이상)",
       "submitDate": "2026-03-17T08:02:35Z",
@@ -29389,5 +32624,5 @@
       ]
     }
   ],
-  "updatedAt": "2026-03-19T08:12:27.540Z"
+  "updatedAt": "2026-03-31T05:01:38.285Z"
 }
